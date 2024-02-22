@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Card, Flex, Heading, Text } from '@radix-ui/themes';
 import IssueStatusBadge from '@/app/components/IssueStatusBadge';
 import ReactMarkDown from 'react-markdown';
+import delay from 'delay';
 
 interface Props {
   params: { id: string };
@@ -18,6 +19,8 @@ const IssueDetailpage = async ({ params: { id } }: Props) => {
   });
 
   if (!issue) notFound();
+
+  await delay(2000);
 
   return (
     <div>
